@@ -14,10 +14,11 @@ const addTodo = () => {
   myArray.value.push({
     content: input_content.value,
     category: input_category.value,
-  });
+    done: false, 
+  })
 
-  input_content.value = '';
-  input_category.value = null;
+  input_content.value = ''
+  input_category.value = null
 }
 
 </script>
@@ -57,7 +58,7 @@ const addTodo = () => {
 
     <section class="todo-list">
       <div class="list">
-        <div v-for="x in myArray" class="todo-item" :key="x">
+        <div v-for="x in myArray" :class="`todo-item ${x.done ? 'done' : 'not-done'}`" :key="x">
           <label>
             <input type="checkbox" v-model="x.done" />
             <span :class="'bubble ' + x.category"></span>
@@ -66,7 +67,7 @@ const addTodo = () => {
             <input type="text" v-model="x.content" />
           </div>
 
-          
+
     </div>
   </div>
 </section>
