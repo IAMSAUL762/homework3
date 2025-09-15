@@ -56,8 +56,21 @@ const addTodo = () => {
     </section>
 
     <section class="todo-list">
+      <div class="list">
+        <div v-for="x in myArray" class="todo-item" :key="x">
+          <label>
+            <input type="checkbox" v-model="x.done" />
+            <span :class="'bubble ' + x.category"></span>
+          </label>
+          <div class="todo-content">
+            <input type="text" v-model="x.content" />
+          </div>
 
-    </section>
+          
+    </div>
+  </div>
+</section>
+
 
   </main>
 
